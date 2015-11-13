@@ -1,0 +1,1 @@
+packages\NUnit.Console.3.0.0\tools\nunit3-console.exe Tests\bin\Debug\Tests.dll --where cat=Sample1

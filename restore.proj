@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Restore" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project="nunit-utils.targets"/>
+	<Target Name="Restore">
+    	<DownloadFile
+	    	Url="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
+	    	LocalFilePath="tools\nuget.exe"/>
+		<Exec Command="tools\nuget.exe restore teamcity-nunit-samples.sln"/>
+
+		<GetNUnitConsolePath BaseDir="$(MSBuildProjectDirectory)\packages">
+			<Output TaskParameter="PathToNUnitConsole" ItemName="pathToNUnitConsole"/>
+		</GetNUnitConsolePath>
+
+		<Message Text="##teamcity[setParameter name='NUnit3ConsolePath' value='@(pathToNUnitConsole)']" Importance="high"/>
+	</Target>
+</Project>
