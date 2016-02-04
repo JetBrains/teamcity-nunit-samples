@@ -1,0 +1,4 @@
+﻿See https://github.com/nunit/nunit/wiki/Engine-Extensibility to implement extensions.
+
+To activate extension you should copy your extension's assembly and its dependencies to the "addins" directory.
+Also you should add the appropriate entry the file "nunit.engine.addins" or you should create your own file with extension ".addins" with reference to your plugin's assembly.
